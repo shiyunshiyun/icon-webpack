@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webpack配置文件</title>
+    <script src="../../highlight.js"></script>
+    <script src="dist/bundle.js"></script>
+</head>
+<body>
+<svg >
+    <use xlink:href="./src/symbols.svg#account_bocom"/>
+</svg>
+<template>
+    <script>
+
+        /* webpack.config.js
+
+         处理json文件
+
+         */
+
+        const path = require('path');
+
+        const config = {
+            entry: './src/entry.js',
+            output: {
+                path: path.resolve(__dirname, 'dist'),
+                filename: 'bundle.js'
+            },
+            module: {
+                rules: [
+                    {
+                        test: /\.svg/,
+                        loader: 'svg-inline-loader'
+                    }
+                ]
+            }
+        };
+
+        module.exports = config;
+    </script>
+</template>
+</body>
+</html>
